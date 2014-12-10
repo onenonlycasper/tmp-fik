@@ -156,12 +156,6 @@ config DEBUG_SECTION_MISMATCH
 	  - Enable verbose reporting from modpost in order to help resolve
 	    the section mismatches that are reported.
 
-config DEBUG_KERNEL
-	bool "Kernel debugging"
-	help
-	  Say Y here if you are developing drivers or trying to debug and
-	  identify kernel problems.
-
 config LESS_GCC_OPT
 	bool "Compile with -O1 for debugging"
 	depends on DEBUG_KERNEL
