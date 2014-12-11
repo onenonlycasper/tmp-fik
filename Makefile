@@ -572,7 +572,7 @@ endif # $(dot-config)
 all: vmlinux
 
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
-KBUILD_CFLAGS	+= -Os $(call cc-disable-warning,maybe-uninitialized,)
+KBUILD_CFLAGS	+= -O2
 else
 ifdef CONFIG_LESS_GCC_OPT
 KBUILD_CFLAGS	+= -O1
