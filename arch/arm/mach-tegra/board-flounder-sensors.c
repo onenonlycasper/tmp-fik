@@ -653,7 +653,7 @@ late_initcall(flounder_tj_throttle_init);
 static struct thermal_trip_info skin_trips[] = {
 	{
 		.cdev_type = "skin-balanced",
-		.trip_temp = 45000,
+		.trip_temp = 50000,
 		.trip_type = THERMAL_TRIP_PASSIVE,
 		.upper = THERMAL_NO_LIMIT,
 		.lower = THERMAL_NO_LIMIT,
@@ -888,7 +888,7 @@ static struct nct1008_platform_data flounder_nct72_tskin_pdata = {
 			.trips = {
 				{
 					.cdev_type = "skin-balanced",
-					.trip_temp = 50000,
+					.trip_temp = 55000,
 					.trip_type = THERMAL_TRIP_PASSIVE,
 					.upper = THERMAL_NO_LIMIT,
 					.lower = THERMAL_NO_LIMIT,
