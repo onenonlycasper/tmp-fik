@@ -1,0 +1,22 @@
+# build script for "FIRE-ICE" Kernel
+
+
+export PATH=~/bin:$PATH
+export ARCH=arm64
+export CCOMPILE=$CROSS_COMPILE
+export CROSS_COMPILE=aarch64-linux-android-
+export PATH=$PATH:/home/usbhost/TC/bin
+
+cd /home/usbhost/kernel/FIK
+
+make clean
+make mrproper
+make USBhostt_defconfig
+make -j4
+
+cd /home/usbhost/Desktop/nexus9/kernel
+
+./move
+./rp
+
+exit 0

@@ -1,0 +1,2 @@
+rm /home/usbhost/kernel/FIK/arch/arm64/configs/USBhostt_defconfig
+mv ./.config /home/usbhost/kernel/FIK/arch/arm64/configs/USBhostt_defconfig
