@@ -8,7 +8,7 @@ export CROSS_COMPILE=aarch64-linux-android-
 export PATH=$PATH:/home/usbhost/TC/bin
 
 cd /home/usbhost/kernel/FIK
-
+./defconfig
 make clean
 make mrproper
 make USBhostt_defconfig
