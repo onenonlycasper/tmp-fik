@@ -19,7 +19,27 @@ LIBGCC 		:= $(shell $(CC) $(KBUILD_CFLAGS) -print-libgcc-file-name)
 
 KBUILD_DEFCONFIG := defconfig
 
-KBUILD_CFLAGS	+= -mgeneral-regs-only
+# Make variables (CC, etc...)
+
+# SaberMod optimizations
+
+GRAPHITE_FLAGS := \
+    -fgraphite \
+    -fgraphite-identity \
+    -floop-flatten \
+    -floop-parallelize-all \
+    -ftree-loop-linear \
+    -floop-interchange \
+    -floop-strip-mine \
+    -floop-block \
+
+SABERMOD_OPTIMIZATIONS := \
+	$(call cc-option,-Wno-error=maybe-uninitialized) \
+	$(call cc-option,-march=armv8-a) \
+	-O3 \
+	$(GRAPHITE_FLAGS)
+
+KBUILD_CFLAGS	+= -mgeneral-regs-only $(SABERMOD_OPTIMIZATIONS)
 ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
 KBUILD_CPPFLAGS	+= -mbig-endian
 AS		+= -EB
