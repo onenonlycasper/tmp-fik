@@ -36,7 +36,7 @@ GRAPHITE_FLAGS := \
 SABERMOD_OPTIMIZATIONS := \
 	$(call cc-option,-Wno-error=maybe-uninitialized) \
 	$(call cc-option,-march=armv8-a) \
-	-O3 \
+	-Ofast \
 	$(GRAPHITE_FLAGS)
 
 KBUILD_CFLAGS	+= -mgeneral-regs-only $(SABERMOD_OPTIMIZATIONS)
