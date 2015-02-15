@@ -21,25 +21,7 @@ KBUILD_DEFCONFIG := defconfig
 
 # Make variables (CC, etc...)
 
-# SaberMod optimizations
-
-GRAPHITE_FLAGS := \
-    -fgraphite \
-    -fgraphite-identity \
-    -floop-flatten \
-    -floop-parallelize-all \
-    -ftree-loop-linear \
-    -floop-interchange \
-    -floop-strip-mine \
-    -floop-block \
-
-SABERMOD_OPTIMIZATIONS := \
-	$(call cc-option,-Wno-error=maybe-uninitialized) \
-	$(call cc-option,-march=armv8-a) \
-	-Ofast \
-	$(GRAPHITE_FLAGS)
-
-KBUILD_CFLAGS	+= -mgeneral-regs-only $(SABERMOD_OPTIMIZATIONS)
+KBUILD_CFLAGS	+= -DNDEBUG -mgeneral-regs-only -march=armv8-a -Wno-error=maybe-uninitialized
 ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
 KBUILD_CPPFLAGS	+= -mbig-endian
 AS		+= -EB
