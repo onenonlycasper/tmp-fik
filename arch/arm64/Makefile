@@ -21,7 +21,8 @@ KBUILD_DEFCONFIG := defconfig
 
 # Make variables (CC, etc...)
 
-KBUILD_CFLAGS	+= -DNDEBUG -mgeneral-regs-only -march=armv8-a -Wno-error=maybe-uninitialized
+KBUILD_CFLAGS	+= -DNDEBUG -mgeneral-regs-only -march=armv8-a -fgraphite -fgraphite-identity -floop-flatten -floop-parallelize-all -ftree-loop-linear -floop-interchange -floop-strip-mine -floop-block -Wno-error=maybe-uninitialized
+
 ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
 KBUILD_CPPFLAGS	+= -mbig-endian
 AS		+= -EB
